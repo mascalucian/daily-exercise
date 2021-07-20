@@ -29,9 +29,9 @@ def genereaza(nume):
     else:
         print(limba['eroare_dificultate'])
         return 0
-    print('Ai de facut {} flotari, {} abdomene si {} genoflexiuni'.format(f,a,g))
-    gata=input('Daca ai terminat scrie gata, daca nu, orice altceva: ')
-    if gata=='gata':
+    print(limba['print_de_facut'].format(f,a,g))
+    gata=input(limba['exercitii_terminate'])
+    if gata=='gata' or gata=='done':
         with open(nume+'.csv','a') as file:
 
             azi=datetime.date.today()
