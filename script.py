@@ -3,16 +3,11 @@ import sys
 import os
 #import random
 import datetime
+#import languages:
+sys.path.append('/Users/apple/Desktop/Python/exercitii/lang')
+import ro,en
 
-ro={
-'dificultate_antrenament':'Doresti sa fie un antrenament usor/mediu/greu?: ',
-'eroare_dificultate':'Aceasta dificultate nu exista! Programul se va inchide.'
-}
-en={
-'dificultate_antrenament':'Do you want your workout easy/medium/hard?: ',
-'eroare_dificultate':'This dificulty does not exist. The program will close.'
-}
-limba=en
+limba=ro.ro
 
 #daca nu exista log, genereaza
 def fisiercsv(nume):
