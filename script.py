@@ -30,6 +30,7 @@ def genereaza(nume):
             file.write(str(azi)+': '+'[ {},{},{} ]'.format(f,a,g)+'\n')
     else:
         main()
+    do_more()
 
 #verifica ce s-a facut in ziua respectiva
 def verifica(data,nume):
@@ -53,12 +54,27 @@ def verifica(data,nume):
             print('Pe data de {}, {} a facut {} flotari, {} abdomene si {} genoflexiuni'.format(data,nume,cate[0],cate[1],cate[2]))
         else:
             print('In ziua {}, {} nu a facut niciun exercitiu.'.format(data,nume))
+    do_more()
+#continuare program
+def do_more():
+    alegere=input('Doresti sa faci si altceva?: ')
+    if alegere=='da' or alegere=='DA' or alegere=="Da" or alegere=='yes':
+        main()
+    else:
+        return 0
+
+
+def intro():
+    nume=input('Cum te cheama? ')
+    fisiercsv(nume)
+    return nume
 
 
 #main
 def main():
-    nume=input('Cum te cheama? ')
-    fisiercsv(nume)
+    global nume
+    #nume=input('Cum te cheama? ')
+    #fisiercsv(nume)
     alegere=input('Ce vrei sa faci? (antrenament,verifica,nimic): ')
     if alegere=='antrenament' or alegere=='a':
         genereaza(nume)
@@ -68,4 +84,5 @@ def main():
     else:
         return 0
 
+nume=intro()
 main()
