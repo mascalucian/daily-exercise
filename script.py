@@ -1,8 +1,18 @@
 import re
 import sys
 import os
-import random
+#import random
 import datetime
+
+ro={
+'dificultate_antrenament':'Doresti sa fie un antrenament usor/mediu/greu?: ',
+'eroare_dificultate':'Aceasta dificultate nu exista! Programul se va inchide.'
+}
+en={
+'dificultate_antrenament':'Do you want your workout easy/medium/hard?: ',
+'eroare_dificultate':'This dificulty does not exist. The program will close.'
+}
+limba=en
 
 #daca nu exista log, genereaza
 def fisiercsv(nume):
@@ -13,13 +23,17 @@ def fisiercsv(nume):
 
 #genereaza un program random
 def genereaza(nume):
-    dificultate=input('Doresti sa fie un antrenament usor/mediu/greu?: ')
+    global limba
+    dificultate=input(limba['dificultate_antrenament'])
     if dificultate=='usor':
         f,a,g=(10,10,5)
     elif dificultate=='mediu':
         f,a,g=(20,20,10)
-    else:
+    elif dificultate=='greu' or dificultate=='hard' or dificultate=='3':
         f,a,g=(50,50,15)
+    else:
+        print(limba['eroare_dificultate'])
+        return 0
     print('Ai de facut {} flotari, {} abdomene si {} genoflexiuni'.format(f,a,g))
     gata=input('Daca ai terminat scrie gata, daca nu, orice altceva: ')
     if gata=='gata':
