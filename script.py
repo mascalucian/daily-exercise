@@ -60,10 +60,12 @@ def main():
     nume=input('Cum te cheama? ')
     fisiercsv(nume)
     alegere=input('Ce vrei sa faci? (antrenament,verifica,nimic): ')
-    if alegere=='antrenament':
+    if alegere=='antrenament' or alegere=='a':
         genereaza(nume)
-    elif alegere=='verifica':
-        data=input('Ce data vrei sa verifici? ')
+    elif alegere=='verifica' or alegere=='v':
+        data=input('Ce data vrei sa verifici? (aaaa-ll-zz): ')
         verifica(data,nume)
+    else:
+        return 0
 
 main()
